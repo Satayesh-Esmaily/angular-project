@@ -15,8 +15,8 @@ export class TaskService {
     },
     {
       id: 2,
-      title: 'Write unit tests',
-      description: 'Create Jasmine specs for services and UI components',
+      title: 'Plan weekly roadmap',
+      description: 'Break goals into actionable tasks for this week',
       completed: false,
       priority: 'high',
       createdAt: new Date().toISOString()
