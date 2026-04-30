@@ -1,0 +1,27 @@
+<app-page-header title="Tasks" subtitle="Manage project tasks and use this page for Jasmine UI tests" />
+
+<div class="grid gap-6 lg:grid-cols-[360px_1fr]">
+  <app-task-form (submitTask)="addTask($event)" />
+
+  <section class="rounded-2xl border border-slate-200 bg-white p-4">
+    <h2 class="text-lg font-semibold text-slate-900">Task List</h2>
+
+    <ul class="mt-4 space-y-3">
+      @for (task of tasks(); track task.id) {
+        <li class="flex items-start justify-between rounded-xl border border-slate-100 p-3">
+          <div class="pr-4">
+            <p class="font-medium" [class.line-through]="task.completed">{{ task.title }}</p>
+            <p class="text-sm text-slate-500">{{ task.description }}</p>
+          </div>
+          <button
+            type="button"
+            (click)="toggleTask(task.id)"
+            class="rounded-lg border border-slate-300 px-3 py-1 text-sm"
+          >
+            {{ task.completed ? 'Undo' : 'Complete' }}
+          </button>
+        </li>
+      }
+    </ul>
+  </section>
+</div>
